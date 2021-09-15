@@ -1,0 +1,6 @@
+{
+  "extends": "@voxpelli/tsconfig/node12.json",
+  "files": [
+    "index.js",
+  ]
+}
