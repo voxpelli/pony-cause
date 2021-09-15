@@ -9,7 +9,6 @@ class ErrorWithCause extends Error {
   constructor (message, { cause, constructorOpt = ErrorWithCause } = {}) {
     super(message);
 
-    // FIXME: Maybe follow https://tc39.es/proposal-error-cause/#sec-errorobjects-install-error-cause
     this.cause = cause;
     this.message = message;
 
@@ -18,25 +17,6 @@ class ErrorWithCause extends Error {
     }
   }
 }
-
-// TODO: Probably skip this one, quite non-standard :/
-// /**
-//  * @template T
-//  * @augments {ErrorWithCause<T>}
-//  */
-// class ErrorWithVerboseCause extends ErrorWithCause {
-//   /**
-//    * @param {string} message
-//    * @param {{ cause?: T, constructorOpt?: function }} [options]
-//    */
-//   constructor (message, { cause, constructorOpt = ErrorWithVerboseCause } = {}) {
-//     if (cause) {
-//       message += ': ' + cause;
-//     }
-
-//     super(message, { cause, constructorOpt });
-//   }
-// }
 
 /**
  * @template {Error} T
