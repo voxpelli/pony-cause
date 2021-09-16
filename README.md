@@ -1,6 +1,6 @@
 # Pony Cause
 
-A ponyfill for [Error Causes](https://github.com/tc39/proposal-error-cause)
+Ponyfill and helpers for [Error Causes](https://github.com/tc39/proposal-error-cause)
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/standard/semistandard)
 
