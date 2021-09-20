@@ -99,3 +99,13 @@ Similar to [`VError.findCauseByName`](https://github.com/joyent/node-verror#verr
 Can be useful if there's some extra data on it that can help determine whether it's an unexpected error or an error that can be handled.
 
 If it's an error related to a HTTP request, then maybe the request can be retried? If its a database error that tells you about a duplicated row, then maybe you know how to work with that? Maybe forward that error to the user rather than show a `500` error?
+
+## Similar modules
+
+* [`verror`](https://www.npmjs.com/package/verror) – a module which has long enabled error causes in javascript. Superseded by the new Error Cause proposal. Differs in that`.cause` represents a function that returns the cause, its not the cause itself.
+* [`@netflix/nerror`](https://www.npmjs.com/package/@netflix/nerror) – a Netflix fork of `verror`
+
+## See also
+
+* [Announcement blog post](https://dev.to/voxpelli/pony-cause-1-0-error-causes-2l2o)
+* [Announcement tweet](https://twitter.com/voxpelli/status/1438476680537034756)
