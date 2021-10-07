@@ -84,7 +84,7 @@ try {
   /** @type {MySpecialError} */
   const specialErr = findCauseByReference(err, MySpecialError);
 
-  if (specialErr && specialErr.specialProperty = 'specialValue') {
+  if (specialErr && specialErr.specialProperty === 'specialValue') {
     // Its okay, chill!
   } else {
     throw err;
