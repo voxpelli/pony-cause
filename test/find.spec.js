@@ -62,14 +62,14 @@ describe('findCauseByReference()', () => {
     const err = new SubError('Foo');
     const result = findCauseByReference(err, SubError);
     should.exist(result);
-    result?.should.equal(err);
+    (result || {}).should.equal(err);
   });
 
   it('should return input if its an instance of a parent of reference', () => {
     const err = new SubError('Foo');
     const result = findCauseByReference(err, Error);
     should.exist(result);
-    result?.should.equal(err);
+    (result || {}).should.equal(err);
   });
 
   it('should not return input if its not an instance of reference', () => {
@@ -83,7 +83,7 @@ describe('findCauseByReference()', () => {
     const err = new ErrorWithCause('Bar', { cause });
     const result = findCauseByReference(err, SubError);
     should.exist(result);
-    result?.should.equal(cause);
+    (result || {}).should.equal(cause);
   });
 
   it('should return input VError cause if its an instance of reference', () => {
@@ -91,7 +91,7 @@ describe('findCauseByReference()', () => {
     const err = new VError(cause, 'Bar');
     const result = findCauseByReference(err, SubError);
     should.exist(result);
-    result?.should.equal(cause);
+    (result || {}).should.equal(cause);
   });
 
   it('should not go infinite on circular error causes', () => {

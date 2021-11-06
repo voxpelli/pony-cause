@@ -50,7 +50,7 @@ describe('getErrorCause()', () => {
       const err = new ErrorWithCause('Bar', { cause });
       const result = getErrorCause(err);
       should.exist(result);
-      result?.should.equal(cause);
+      (result || {}).should.equal(cause);
     });
 
     it('should not return non-Error cause', () => {
@@ -66,7 +66,7 @@ describe('getErrorCause()', () => {
       const err = new VError(cause, 'Bar');
       const result = getErrorCause(err);
       should.exist(result);
-      result?.should.equal(cause);
+      (result || {}).should.equal(cause);
     });
 
     it('should not return non-Error cause', () => {
