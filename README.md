@@ -3,6 +3,8 @@
 Ponyfill and helpers for [Error Causes](https://github.com/tc39/proposal-error-cause)
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/standard/semistandard)
+[![Linting](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml)
+[![Node CI](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml)
 
 ## Usage
 
