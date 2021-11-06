@@ -102,7 +102,6 @@ const stackWithCauses = (err) => _stackWithCauses(err, new Set());
 
 module.exports = {
   ErrorWithCause,
-  // ErrorWithVerboseCause,
   findCauseByReference,
   getErrorCause,
   stackWithCauses,
