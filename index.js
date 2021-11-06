@@ -9,6 +9,7 @@ class ErrorWithCause extends Error {
   constructor (message, { cause } = {}) {
     super(message);
 
+    this.name = ErrorWithCause.name;
     this.cause = cause;
     this.message = message;
   }
