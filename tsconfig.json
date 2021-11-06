@@ -2,5 +2,8 @@
   "extends": "@voxpelli/tsconfig/node12.json",
   "files": [
     "index.js",
+  ],
+  "include": [
+    "test/**/*.js",
   ]
 }

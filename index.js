@@ -25,7 +25,13 @@ class ErrorWithCause extends Error {
  * @returns {T|undefined}
  */
 const findCauseByReference = (err, reference) => {
+  if (!err || !reference) return;
   if (!(err instanceof Error)) return;
+  if (
+    !(reference.prototype instanceof Error) &&
+    // @ts-ignore
+    reference !== Error
+  ) return;
 
   /**
    * Ensures we don't go circular
@@ -54,6 +60,8 @@ const findCauseByReference = (err, reference) => {
  * @returns {Error|undefined}
  */
 const getErrorCause = (err) => {
+  if (!err) return;
+
   /** @type {unknown} */
   // @ts-ignore
   const cause = err.cause;
@@ -61,11 +69,16 @@ const getErrorCause = (err) => {
   // VError / NError style causes
   if (typeof cause === 'function') {
     // @ts-ignore
-    return err.cause();
-  }
-  if (!(cause instanceof Error)) return;
+    const causeResult = err.cause();
 
-  return cause;
+    return causeResult instanceof Error
+      ? causeResult
+      : undefined;
+  } else {
+    return cause instanceof Error
+      ? cause
+      : undefined;
+  }
 };
 
 /**
