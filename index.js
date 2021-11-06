@@ -59,7 +59,10 @@ const getErrorCause = (err) => {
   const cause = err.cause;
 
   // VError / NError style causes
-  if (typeof cause === 'function') return cause();
+  if (typeof cause === 'function') {
+    // @ts-ignore
+    return err.cause();
+  }
   if (!(cause instanceof Error)) return;
 
   return cause;
