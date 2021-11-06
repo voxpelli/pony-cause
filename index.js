@@ -4,17 +4,13 @@
 class ErrorWithCause extends Error {
   /**
    * @param {string} message
-   * @param {{ cause?: T, constructorOpt?: function }} [options]
+   * @param {{ cause?: T }} [options]
    */
-  constructor (message, { cause, constructorOpt = ErrorWithCause } = {}) {
+  constructor (message, { cause } = {}) {
     super(message);
 
     this.cause = cause;
     this.message = message;
-
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, constructorOpt);
-    }
   }
 }
 
