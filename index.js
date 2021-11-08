@@ -89,8 +89,12 @@ const getErrorCause = (err) => {
 const _stackWithCauses = (err, seen) => {
   if (!(err instanceof Error)) return '';
 
+  const stack = err.stack || '';
+
   // Ensure we don't go circular or crazily deep
-  if (seen.has(err)) return '';
+  if (seen.has(err)) {
+    return stack + '\ncauses have become circular...';
+  }
   seen.add(err);
 
   const cause = getErrorCause(err);
@@ -98,10 +102,10 @@ const _stackWithCauses = (err, seen) => {
   // TODO: Follow up in https://github.com/nodejs/node/issues/38725#issuecomment-920309092 on how to log stuff
 
   if (cause) {
-    return (err.stack + '\ncaused by: ' + _stackWithCauses(cause, seen));
+    return (stack + '\ncaused by: ' + _stackWithCauses(cause, seen));
   }
 
-  return err.stack || '';
+  return stack;
 };
 
 /**
