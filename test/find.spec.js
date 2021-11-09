@@ -98,6 +98,7 @@ describe('findCauseByReference()', () => {
     const cause = new ErrorWithCause('Foo');
     const err = new ErrorWithCause('Bar', { cause });
 
+    // @ts-ignore
     cause.cause = err;
 
     const result = findCauseByReference(err, SubError);

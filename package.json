@@ -22,6 +22,7 @@
     "check:installed-check": "installed-check -i dependency-check -i installed-check",
     "check:lint": "eslint .",
     "check:tsc": "tsc",
+    "check:type-coverage": "type-coverage --detail --strict --at-least 97 --ignore-files 'test/*'",
     "check": "run-s clean && run-p check:*",
     "clean:declarations": "rm -rf $(find . -maxdepth 2 -type f -name '*.d.ts')",
     "clean": "run-p clean:*",
@@ -50,7 +51,7 @@
     "@types/verror": "^1.10.5",
     "@voxpelli/eslint-config": "^12.0.2",
     "@voxpelli/eslint-config-jsdoc-ts": "^0.3.1",
-    "@voxpelli/tsconfig": "^3.0.0",
+    "@voxpelli/tsconfig": "^3.1.0-0",
     "c8": "^7.10.0",
     "chai": "^4.3.4",
     "chai-string": "^1.5.0",
@@ -70,7 +71,8 @@
     "installed-check": "^5.0.0-1",
     "mocha": "^9.1.3",
     "npm-run-all": "^4.1.5",
-    "typescript": "~4.4.4",
+    "type-coverage": "^2.19.0",
+    "typescript": "^4.5.1-rc",
     "verror": "^1.10.1"
   }
 }

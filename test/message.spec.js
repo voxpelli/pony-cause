@@ -73,6 +73,7 @@ describe('messageWithCauses()', () => {
     const cause = new ErrorWithCause('Foo');
     const err = new ErrorWithCause('Bar', { cause });
 
+    // @ts-ignore
     cause.cause = err;
 
     const result = messageWithCauses(err);

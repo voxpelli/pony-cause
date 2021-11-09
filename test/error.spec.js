@@ -25,12 +25,12 @@ describe('ErrorWithCause', () => {
   it('should handle missing options object', () => {
     const err = new ErrorWithCause('Foo');
 
-    err.should.have.property('cause', undefined);
+    err.should.not.have.property('cause');
     err.should.have.property('message', 'Foo');
   });
 
   it('should handle empty options object', () => {
-    (new ErrorWithCause('Foo', {})).should.have.property('cause', undefined);
+    (new ErrorWithCause('Foo', {})).should.not.have.property('cause');
   });
 
   it('should produce a proper stack trace', () => {

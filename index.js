@@ -1,6 +1,6 @@
 'use strict';
 
-/** @template T */
+/** @template [T=undefined] */
 class ErrorWithCause extends Error {
   /**
    * @param {string} message
@@ -9,8 +9,13 @@ class ErrorWithCause extends Error {
   constructor (message, { cause } = {}) {
     super(message);
 
+    /** @type {string} */
     this.name = ErrorWithCause.name;
-    this.cause = cause;
+    if (cause) {
+      /** @type {T} */
+      this.cause = cause;
+    }
+    /** @type {string} */
     this.message = message;
   }
 }

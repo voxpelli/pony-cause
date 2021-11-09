@@ -86,6 +86,7 @@ describe('stackWithCauses()', () => {
     cause.stack = 'abc123';
     err.stack = 'xyz789';
 
+    // @ts-ignore
     cause.cause = err;
 
     const result = stackWithCauses(err);
