@@ -79,7 +79,7 @@ const getErrorCause = (err) => {
 };
 
 /**
- * Internal method that keeps a track of which stack traces we have already added, to avoid circular recursion
+ * Internal method that keeps a track of which error we have already added, to avoid circular recursion
  *
  * @private
  * @param {Error} err
@@ -95,17 +95,17 @@ const _stackWithCauses = (err, seen) => {
   if (seen.has(err)) {
     return stack + '\ncauses have become circular...';
   }
-  seen.add(err);
 
   const cause = getErrorCause(err);
 
   // TODO: Follow up in https://github.com/nodejs/node/issues/38725#issuecomment-920309092 on how to log stuff
 
   if (cause) {
+    seen.add(err);
     return (stack + '\ncaused by: ' + _stackWithCauses(cause, seen));
+  } else {
+    return stack;
   }
-
-  return stack;
 };
 
 /**
@@ -114,9 +114,51 @@ const _stackWithCauses = (err, seen) => {
  */
 const stackWithCauses = (err) => _stackWithCauses(err, new Set());
 
+/**
+ * Internal method that keeps a track of which error we have already added, to avoid circular recursion
+ *
+ * @private
+ * @param {Error} err
+ * @param {Set<Error>} seen
+ * @param {boolean} [skip]
+ * @returns {string}
+ */
+const _messageWithCauses = (err, seen, skip) => {
+  if (!(err instanceof Error)) return '';
+
+  const message = skip ? '' : (err.message || '');
+
+  // Ensure we don't go circular or crazily deep
+  if (seen.has(err)) {
+    return message + ': ...';
+  }
+
+  const cause = getErrorCause(err);
+
+  if (cause) {
+    seen.add(err);
+
+    // @ts-ignore
+    const skipIfVErrorStyleCause = typeof err.cause === 'function';
+
+    return (message +
+      (skipIfVErrorStyleCause ? '' : ': ') +
+      _messageWithCauses(cause, seen, skipIfVErrorStyleCause));
+  } else {
+    return message;
+  }
+};
+
+/**
+ * @param {Error} err
+ * @returns {string}
+ */
+const messageWithCauses = (err) => _messageWithCauses(err, new Set());
+
 module.exports = {
   ErrorWithCause,
   findCauseByReference,
   getErrorCause,
   stackWithCauses,
+  messageWithCauses,
 };
