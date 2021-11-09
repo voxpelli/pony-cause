@@ -139,8 +139,10 @@ _Note:_ `findCauseByReference` has protection against circular causes
 
 * [`verror`](https://www.npmjs.com/package/verror) – a module which has long enabled error causes in javascript. Superseded by the new Error Cause proposal. Differs in that`.cause` represents a function that returns the cause, its not the cause itself.
 * [`@netflix/nerror`](https://www.npmjs.com/package/@netflix/nerror) – a Netflix fork of `verror`
+* [`error-cause`](https://www.npmjs.com/package/error-cause) – strict polyfill for the Error Cause proposal. Provides no helpers or similar to achieve `VError`-like functionality, which `pony-cause` does.
 
 ## See also
 
-* [Announcement blog post](https://dev.to/voxpelli/pony-cause-1-0-error-causes-2l2o)
-* [Announcement tweet](https://twitter.com/voxpelli/status/1438476680537034756)
+* [Pony Cause announcement blog post](https://dev.to/voxpelli/pony-cause-1-0-error-causes-2l2o)
+* [Pony Cause announcement tweet](https://twitter.com/voxpelli/status/1438476680537034756)
+* [Error Cause implementations](https://github.com/tc39/proposal-error-cause#implementations)
