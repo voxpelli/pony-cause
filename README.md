@@ -68,7 +68,7 @@ try {
   try {
     throw new Error('First error');
   } catch (err) {
-    throw new ErrorWithCause('Second error');
+    throw new ErrorWithCause('Second error', { cause: err });
   }
 } catch (err) {
   // Logs: "Second error: First error"
