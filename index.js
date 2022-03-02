@@ -103,11 +103,19 @@ const _stackWithCauses = (err, seen) => {
 
   const cause = getErrorCause(err);
 
-  // TODO: Follow up in https://github.com/nodejs/node/issues/38725#issuecomment-920309092 on how to log stuff
-
   if (cause) {
     seen.add(err);
     return (stack + '\ncaused by: ' + _stackWithCauses(cause, seen));
+  } else if (Object.prototype.hasOwnProperty.call(err, 'cause')) {
+    /** @type {string} */
+    let stringified;
+    try {
+      // @ts-ignore
+      stringified = JSON.stringify(err.cause);
+    } catch {
+      stringified = '<failed to stringify value>';
+    }
+    return (stack + '\ncaused by: ' + stringified);
   } else {
     return stack;
   }
