@@ -1,7 +1,7 @@
 'use strict';
 
 /** @template [T=undefined] */
-class ErrorWithCause extends Error {
+class ErrorWithCause extends Error { // linemod-prefix-with: export
   /**
    * @param {string} message
    * @param {{ cause?: T }} [options]
@@ -26,7 +26,7 @@ class ErrorWithCause extends Error {
  * @param {new(...args: any[]) => T} reference
  * @returns {T|undefined}
  */
-const findCauseByReference = (err, reference) => {
+const findCauseByReference = (err, reference) => { // linemod-prefix-with: export
   if (!err || !reference) return;
   if (!(err instanceof Error)) return;
   if (
@@ -61,7 +61,7 @@ const findCauseByReference = (err, reference) => {
  * @param {Error|{ cause?: unknown|(()=>err)}} err
  * @returns {Error|undefined}
  */
-const getErrorCause = (err) => {
+const getErrorCause = (err) => { // linemod-prefix-with: export
   if (!err) return;
 
   /** @type {unknown} */
@@ -117,7 +117,7 @@ const _stackWithCauses = (err, seen) => {
  * @param {Error} err
  * @returns {string}
  */
-const stackWithCauses = (err) => _stackWithCauses(err, new Set());
+const stackWithCauses = (err) => _stackWithCauses(err, new Set()); // linemod-prefix-with: export
 
 /**
  * Internal method that keeps a track of which error we have already added, to avoid circular recursion
@@ -158,12 +158,12 @@ const _messageWithCauses = (err, seen, skip) => {
  * @param {Error} err
  * @returns {string}
  */
-const messageWithCauses = (err) => _messageWithCauses(err, new Set());
+const messageWithCauses = (err) => _messageWithCauses(err, new Set()); // linemod-prefix-with: export
 
-module.exports = {
-  ErrorWithCause,
-  findCauseByReference,
-  getErrorCause,
-  stackWithCauses,
-  messageWithCauses,
-};
+module.exports = {      // linemod-remove
+  ErrorWithCause,       // linemod-remove
+  findCauseByReference, // linemod-remove
+  getErrorCause,        // linemod-remove
+  stackWithCauses,      // linemod-remove
+  messageWithCauses,    // linemod-remove
+};                      // linemod-remove
