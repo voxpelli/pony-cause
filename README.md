@@ -6,6 +6,7 @@ Ponyfill and helpers for [Error Causes](https://github.com/tc39/proposal-error-c
 [![ES Module Ready](https://img.shields.io/badge/es%20module%20ready-yes-success.svg)](https://esmodules.dev/)
 [![Linting](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml)
 [![Node CI](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml)
+[![Types in JS](https://img.shields.io/badge/types_in_js-yes-FF057C)](https://github.com/voxpelli/types-in-js)
 
 ## Usage
 
