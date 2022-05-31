@@ -6,14 +6,14 @@ class ErrorWithCause extends Error { // linemod-prefix-with: export
    * @param {string} message
    * @param {{ cause?: T }} [options]
    */
-  constructor (message, { cause } = {}) {
+  constructor (message, options) {
     super(message);
 
     /** @type {string} */
     this.name = ErrorWithCause.name;
-    if (cause) {
-      /** @type {T} */
-      this.cause = cause;
+    if (options && Object.prototype.hasOwnProperty.call(options, 'cause')) {
+      /** @type {T|undefined} */
+      this.cause = options.cause;
     }
     /** @type {string} */
     this.message = message;

@@ -37,4 +37,17 @@ describe('ErrorWithCause', () => {
     const err = new ErrorWithCause('Foo');
     err.should.have.property('stack').that.is.a('string').which.startsWith('ErrorWithCause: Foo\n');
   });
+
+  it('should set cause property when given undefined cause', () => {
+    (new ErrorWithCause('Foo', { cause: undefined })).should.have.property('cause', undefined);
+  });
+
+  it('should set cause property when given null cause', () => {
+    // eslint-disable-next-line unicorn/no-null
+    (new ErrorWithCause('Foo', { cause: null })).should.have.property('cause', null);
+  });
+
+  it('should set cause property when given false cause', () => {
+    (new ErrorWithCause('Foo', { cause: false })).should.have.property('cause', false);
+  });
 });
