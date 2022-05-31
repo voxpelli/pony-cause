@@ -1,0 +1,23 @@
+name: Type Checks
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  type-check:
+    uses: voxpelli/ghatemplates/.github/workflows/type-check.yml@main
+    with:
+      ts-versions: '4.5,4.6,4.7'
+      # Can add the "es2020,es2022.error,es2021.promise" once 4.5 isn't included
+      # ts-libs: 'es2020;esnext;es2020,es2022.error,es2021.promise'
+      ts-libs: 'es2020;esnext'
