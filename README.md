@@ -2,11 +2,11 @@
 
 Ponyfill and helpers for [Error Causes](https://github.com/tc39/proposal-error-cause)
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/standard/semistandard)
-[![ES Module Ready](https://img.shields.io/badge/es%20module%20ready-yes-success.svg)](https://esmodules.dev/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
+[![ES Module Ready Badge](https://img.shields.io/badge/es%20module%20ready-yes-success.svg)](https://esmodules.dev/)
+[![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Linting](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/lint.yml)
 [![Node CI](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml/badge.svg)](https://github.com/voxpelli/pony-cause/actions/workflows/nodejs.yml)
-[![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 
 ## Usage
 
