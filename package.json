@@ -21,12 +21,13 @@
     "index.d.ts.map"
   ],
   "scripts": {
+    "build-for-test": "run-s clean build:1:esm",
     "build:0": "run-s clean",
     "build:1:declaration": "tsc -p declaration.tsconfig.json",
     "build:1:esm": "linemod -e mjs index.js",
     "build:1": "run-p build:1:*",
     "build": "run-s build:*",
-    "check:0": "run-s clean build:1:esm",
+    "check:0": "run-s build-for-test",
     "check:1:dependency-check": "dependency-check *.js *.mjs 'test/**/*.js' 'test/**/*.mjs' --no-dev",
     "check:1:installed-check": "installed-check -i eslint-plugin-jsdoc -i npm-run-all2 -i installed-check",
     "check:1:lint": "eslint .",
@@ -39,7 +40,7 @@
     "clean": "run-p clean:*",
     "prepare": "husky install",
     "prepublishOnly": "run-s build",
-    "test:0": "run-s clean build:1:esm",
+    "test:0": "run-s build-for-test",
     "test:1-mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js' 'test/**/*.spec.mjs'",
     "test-ci": "run-s test:*",
     "test": "run-s check test:*"
