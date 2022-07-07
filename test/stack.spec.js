@@ -92,4 +92,54 @@ describe('stackWithCauses()', () => {
     const result = stackWithCauses(err);
     result.should.equal('xyz789\ncaused by: abc123\ncaused by: xyz789\ncauses have become circular...');
   });
+
+  describe('should append non-Error causes to the end of the cause trail', () => {
+    it('for string causes', () => {
+      const err = new ErrorWithCause('foo', { cause: 'string cause' });
+      err.stack = 'xyz789';
+      stackWithCauses(err).should.equal('xyz789\ncaused by: "string cause"');
+    });
+
+    it('for number causes', () => {
+      const err = new ErrorWithCause('foo', { cause: 123 });
+      err.stack = 'xyz789';
+      stackWithCauses(err).should.equal('xyz789\ncaused by: 123');
+    });
+
+    it('for non-Error object causes', () => {
+      const err = new ErrorWithCause('foo', { cause: { name: 'TypeError', message: 'foo' } });
+      err.stack = 'xyz789';
+      stackWithCauses(err).should.equal('xyz789\ncaused by: {"name":"TypeError","message":"foo"}');
+    });
+
+    it('should not throw for circular non-Error object causes', () => {
+      const firstCause = { first: true };
+      const secondCause = { second: true, firstCause };
+
+      // @ts-ignore
+      firstCause.secondCause = secondCause;
+
+      const err = new ErrorWithCause('foo', { cause: firstCause });
+      err.stack = 'xyz789';
+      stackWithCauses(err).should.equal('xyz789\ncaused by: <failed to stringify value>');
+    });
+
+    // Copied from https://github.com/nodejs/node/blob/5e6f9c3e346b196ab299a3fce485d7aa5fbf3802/test/parallel/test-util-inspect.js#L663-L677
+    it('for falsy causes', () => {
+      const falsyCause1 = new ErrorWithCause('', { cause: false });
+      delete falsyCause1.stack;
+
+      // @ts-ignore
+      // eslint-disable-next-line unicorn/no-null
+      const falsyCause2 = new ErrorWithCause(undefined, { cause: null });
+      falsyCause2.stack = '';
+
+      const undefinedCause = new ErrorWithCause('', { cause: undefined });
+      undefinedCause.stack = '';
+
+      stackWithCauses(falsyCause1).should.equal('\ncaused by: false');
+      stackWithCauses(falsyCause2).should.equal('\ncaused by: null');
+      stackWithCauses(undefinedCause).should.equal('\ncaused by: undefined');
+    });
+  });
 });
