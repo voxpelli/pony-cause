@@ -30,7 +30,7 @@
     "check:0": "run-s build-for-test",
     "check:1:dependency-check": "dependency-check *.js *.mjs 'test/**/*.js' 'test/**/*.mjs' --no-dev",
     "check:1:installed-check": "installed-check -i eslint-plugin-jsdoc -i npm-run-all2 -i installed-check",
-    "check:1:lint": "eslint .",
+    "check:1:lint": "eslint --report-unused-disable-directives .",
     "check:1:skypack": "package-check",
     "check:1:tsc": "tsc",
     "check:1:type-coverage": "type-coverage --detail --strict --at-least 97 --ignore-files 'test/*'",
