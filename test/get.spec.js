@@ -54,7 +54,10 @@ describe('getErrorCause()', () => {
     });
 
     it('should not return non-Error cause', () => {
-      const err = new ErrorWithCause('Bar', { cause: '123' });
+      const err = new ErrorWithCause('Bar', {
+        // @ts-ignore Can be removed when we no longer support TS 4.7
+        cause: '123'
+      });
       const result = getErrorCause(err);
       should.not.exist(result);
     });

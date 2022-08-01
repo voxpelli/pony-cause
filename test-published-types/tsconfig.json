@@ -1,0 +1,11 @@
+{
+  "extends": "@voxpelli/tsconfig/node14.json",
+  "files": [
+    "index.js",
+  ],
+  "include": [],
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "types": []
+  }
+}
