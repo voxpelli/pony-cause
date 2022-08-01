@@ -18,6 +18,7 @@
     "import": "./index.mjs"
   },
   "files": [
+    "compat.d.ts",
     "index.js",
     "index.mjs",
     "index.d.ts",
