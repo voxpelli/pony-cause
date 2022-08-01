@@ -14,4 +14,6 @@
 *.d.ts.map
 
 # Library specific ones
-index.mjs
+*.mjs
+!test/**/*.mjs
+!*compat.d.ts
