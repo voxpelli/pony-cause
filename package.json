@@ -1,6 +1,6 @@
 {
   "name": "pony-cause",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Ponyfill and helpers for Error Causes",
   "homepage": "http://github.com/voxpelli/pony-cause",
   "repository": {
@@ -11,7 +11,11 @@
   "module": "index.mjs",
   "types": "index.d.ts",
   "typesVersions": {
-    "~4.6 || ~4.7": { "index.d.ts": ["compat.d.ts"] }
+    "~4.6 || ~4.7": {
+      "index.d.ts": [
+        "compat.d.ts"
+      ]
+    }
   },
   "exports": {
     "require": "./index.js",
@@ -27,7 +31,6 @@
     "lib/**/*.mjs",
     "lib/**/*.d.ts",
     "lib/**/*.d.ts.map"
-
   ],
   "scripts": {
     "build-for-test": "run-s clean build:1:esm",
