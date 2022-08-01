@@ -23,4 +23,4 @@ jobs:
       # Can add the "es2020,es2022.error,es2021.promise" once 4.5 isn't included
       # ts-libs: 'es2020;esnext;es2020,es2022.error,es2021.promise'
       ts-libs: 'es2020;esnext'
-      ts-projects: 'test-published-types'
+      ts-projects: 'test-published-types,.'
