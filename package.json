@@ -93,7 +93,7 @@
     "eslint-plugin-unicorn": "^42.0.0",
     "husky": "^8.0.1",
     "installed-check": "^6.0.4",
-    "linemod": "^0.2.0",
+    "linemod": "^0.3.0",
     "mocha": "^10.0.0",
     "npm-run-all2": "^6.0.1",
     "type-coverage": "^2.22.0",
