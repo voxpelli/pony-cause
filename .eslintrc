@@ -1,7 +1,4 @@
 {
   "extends": "@voxpelli",
-  "root": true,
-  "rules": {
-    "unicorn/prefer-module": 0
-  }
+  "root": true
 }
