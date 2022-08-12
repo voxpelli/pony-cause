@@ -65,7 +65,7 @@
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
   "license": "0BSD",
   "engines": {
-    "node": "^14.17.0 || >=16.0.0"
+    "node": ">=12.0.0"
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
