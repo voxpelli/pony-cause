@@ -54,6 +54,7 @@
     "prepublishOnly": "run-s build",
     "test:0": "run-s build-for-test",
     "test:1-mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js' 'test/**/*.spec.mjs'",
+    "test-build-less": "mocha 'test/**/*.spec.js'",
     "test-ci": "run-s test:*",
     "test": "run-s check test:*"
   },
@@ -65,7 +66,7 @@
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
   "license": "0BSD",
   "engines": {
-    "node": "^14.17.0 || >=16.0.0"
+    "node": ">=12.0.0"
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
