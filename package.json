@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
-    "@types/chai": "^4.3.1",
+    "@types/chai": "^4.3.3",
     "@types/chai-string": "^1.4.2",
     "@types/mocha": "^9.1.1",
     "@types/node": "^14.18.26",
