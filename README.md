@@ -158,6 +158,11 @@ caused by: Error: something bad happened
     at node.js:968:3
 ```
 
+## For enterprise
+
+Available as part of the Tidelift Subscription.
+
+The maintainers of `pony-cause` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-pony-cause?utm_source=npm-pony-cause&utm_medium=referral&utm_campaign=enterprise)
 ## Similar modules
 
 * [`verror`](https://www.npmjs.com/package/verror) – a module which has long enabled error causes in javascript. Superseded by the new Error Cause proposal. Differs in that`.cause` represents a function that returns the cause, its not the cause itself.
