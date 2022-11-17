@@ -18,8 +18,11 @@
     }
   },
   "exports": {
-    "require": "./index.js",
-    "import": "./index.mjs"
+    ".": {
+      "types@<4.8": "./compat.d.ts",
+      "types": "./index.d.ts",
+      "require": "./index.js"
+    }
   },
   "files": [
     "compat.d.ts",
