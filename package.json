@@ -21,6 +21,7 @@
     ".": {
       "types@<4.8": "./compat.d.ts",
       "types": "./index.d.ts",
+      "import": "./index.mjs",
       "require": "./index.js"
     }
   },
