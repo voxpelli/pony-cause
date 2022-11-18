@@ -27,11 +27,11 @@
     }
   },
   "files": [
-    "compat.d.ts",
-    "index.js",
-    "index.mjs",
-    "index.d.ts",
-    "index.d.ts.map",
+    "/compat.d.ts",
+    "/index.js",
+    "/index.mjs",
+    "/index.d.ts",
+    "/index.d.ts.map",
     "lib/**/*.js",
     "lib/**/*.mjs",
     "lib/**/*.d.ts",
