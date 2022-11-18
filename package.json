@@ -12,7 +12,7 @@
   "types": "index.d.ts",
   "typesVersions": {
     "~4.6 || ~4.7": {
-      ".": [
+      "index.d.ts": [
         "compat.d.ts"
       ]
     }
