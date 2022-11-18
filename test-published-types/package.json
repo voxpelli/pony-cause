@@ -1,5 +1,6 @@
 {
-  "name": "pony-cause",
+  "name": "@voxpelli/test-published-types",
+  "private": true,
   "version": "0.0.0",
   "dependencies": {
     "pony-cause": "file:.."
