@@ -2,7 +2,8 @@
 {
   "extends": "./tsconfig",
   "exclude": [
-    "test/**/*.js"
+    "test/**/*.js",
+    "test-published-types/**/*"
   ],
   "compilerOptions": {
     "declaration": true,
