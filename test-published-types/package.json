@@ -1,13 +1,7 @@
 {
   "name": "pony-cause",
   "version": "0.0.0",
-  "scripts": {
-    "test": "tsc"
-  },
   "dependencies": {
     "pony-cause": "file:.."
-  },
-  "devDependencies": {
-    "typescript": "~4.6.0"
   }
 }
