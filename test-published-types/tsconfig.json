@@ -2,7 +2,8 @@
   "extends": "@voxpelli/tsconfig/legacy.json",
 
   "files": [
-    "index.js"
+    "index.js",
+    "index.mjs"
   ],
 
   "compilerOptions": {
