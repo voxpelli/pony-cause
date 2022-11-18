@@ -1,6 +1,6 @@
 {
   "name": "pony-cause",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "Ponyfill and helpers for Error Causes",
   "homepage": "http://github.com/voxpelli/pony-cause",
   "repository": {
