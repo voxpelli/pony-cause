@@ -1,6 +1,6 @@
 # Pony Cause
 
-Helpers and ponyfill for [Error Causes](https://github.com/tc39/proposal-error-cause)
+Helpers and [ponyfill](https://ponyfill.com/) for [Error Causes](https://github.com/tc39/proposal-error-cause)
 
 [![npm version](https://img.shields.io/npm/v/pony-cause.svg?style=flat)](https://www.npmjs.com/package/pony-cause)
 [![npm downloads](https://img.shields.io/npm/dm/pony-cause.svg?style=flat)](https://www.npmjs.com/package/pony-cause)
@@ -9,42 +9,45 @@ Helpers and ponyfill for [Error Causes](https://github.com/tc39/proposal-error-c
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
 [![Follow @voxpelli](https://img.shields.io/twitter/follow/voxpelli?style=social)](https://twitter.com/voxpelli)
 
-## Exports
+## Content
 
-* [`ErrorWithCause`](#errorwithcause) - an `Error` ponyfill
+### Helpers for working with error causes
+
 * [`findCauseByReference`](#findcausebyreference) - finding an error of a specific type within the cause chain
 * [`getErrorCause`](#geterrorcause) - getting the direct cause of an error, if there is any
 * [`messageWithCauses`](#messagewithcauses) - gets the error message with the messages of its cause chain appended to it
 * [`stackWithCauses`](#stackwithcauses) - gets a stack trace for the error + all its causes
 
-## CJS + ESM
+### Ponyfill for Error Causes
 
-`pony-cause` is dual published as both CommonJS and ESM. Use whichever you like.
+* [`ErrorWithCause`](#errorwithcause) - an `Error` subclass that works like the [Error Causes](https://github.com/tc39/proposal-error-cause) spec and thus ["ponyfills"](https://ponyfill.com/) it (does _not_ patch anything globally)
 
-## `ErrorWithCause`
+## CJS + ESM + Types
+
+`pony-cause` is dual published as both CommonJS and ESM, use whichever you like and make use of the TypeScript compliant types no matter which.
+
+## Examples
+
+### `ErrorWithCause`
 
 [Ponyfill](https://ponyfill.com/) of the `cause`-supporting `Error` class
 
 ```javascript
 const { ErrorWithCause } = require('pony-cause');
 
-try {
-  // Something that can break
-} catch (err) {
+try { /* Something that can break */ } catch (err) {
   throw new ErrorWithCause('Failed doing what I intended', { cause: err });
 }
 ```
 
-## `findCauseByReference`
+### `findCauseByReference`
 
 Finding an error of a specific type within the cause chain. Is typescript friendly.
 
 ```javascript
 const { findCauseByReference } = require('pony-cause');
 
-try {
-  // Something that can break
-} catch (err) {
+try { /* Something that can break */ } catch (err) {
   /** @type {MySpecialError} */
   const specialErr = findCauseByReference(err, MySpecialError);
 
@@ -66,16 +69,15 @@ If it's an error related to a HTTP request, then maybe the request can be retrie
 
 _Note:_ [`findCauseByReference`](#findcausebyreference) has protection against circular causes
 
-## `getErrorCause`
+### `getErrorCause`
 
 Getting the direct cause of an error, if there is any
 
 ```javascript
 const { getErrorCause } = require('pony-cause');
 
-try {
-  // Something that can break
-} catch (err) {
+try { /* Something that can break */ } catch (err) {
+  // Returns the Error cause, VError cause or undefined
   const cause = getErrorCause(err);
 }
 ```
@@ -84,7 +86,7 @@ The output is similar to [`VError.cause()`](https://github.com/joyent/node-verro
 
 Always return an `Error`, a subclass of `Error` or `undefined`. If a cause in [Error Causes](https://github.com/tc39/proposal-error-cause) style cause is not an `Error` or a subclass of `Error`, it will be ignored and `undefined` will be returned.
 
-## `messageWithCauses`
+### `messageWithCauses`
 
 Gets the error message with the messages of its cause chain appended to it.
 
@@ -93,12 +95,14 @@ const { messageWithCauses, ErrorWithCause } = require('pony-cause');
 
 try {
   try {
+    // First error...
     throw new Error('First error');
   } catch (err) {
+    // ...that's caught and wrapped in a second error
     throw new ErrorWithCause('Second error', { cause: err });
   }
 } catch (err) {
-  // Logs: "Second error: First error"
+  // Logs the full message trail: "Second error: First error"
   console.log(messageWithCauses(err));
 }
 ```
@@ -117,16 +121,14 @@ If an inner error has a message `ENOENT, stat '/nonexistent'`, an outer error wr
 
 _Note:_ [`messageWithCauses`](#messagewithcauses) has protection against circular causes
 
-## `stackWithCauses`
+### `stackWithCauses`
 
 Gets a stack trace for the error + all its causes.
 
 ```javascript
 const { stackWithCauses } = require('pony-cause');
 
-try {
-  // Something that can break
-} catch (err) {
+try { /* Something that can break */ } catch (err) {
   console.log('We had a mishap:', stackWithCauses(err));
 }
 ```
@@ -163,6 +165,7 @@ caused by: Error: something bad happened
 Available as part of the Tidelift Subscription.
 
 The maintainers of `pony-cause` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use. [Learn more.](https://tidelift.com/subscription/pkg/npm-pony-cause?utm_source=npm-pony-cause&utm_medium=referral&utm_campaign=enterprise)
+
 ## Similar modules
 
 * [`verror`](https://www.npmjs.com/package/verror) – a module which has long enabled error causes in javascript. Superseded by the new Error Cause proposal. Differs in that`.cause` represents a function that returns the cause, its not the cause itself.
