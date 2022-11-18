@@ -9,7 +9,7 @@ Helpers and [ponyfill](https://ponyfill.com/) for [Error Causes](https://github.
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
 [![Follow @voxpelli](https://img.shields.io/twitter/follow/voxpelli?style=social)](https://twitter.com/voxpelli)
 
-## Content
+## Exported
 
 ### Helpers for working with error causes
 
