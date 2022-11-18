@@ -18,3 +18,4 @@
 !test/**/*.mjs
 !*compat.d.ts
 /test-published-types/node_modules
+!/test-published-types/index.mjs
