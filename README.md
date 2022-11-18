@@ -18,9 +18,11 @@ Helpers and [ponyfill](https://ponyfill.com/) for [Error Causes](https://github.
 * [`messageWithCauses`](#messagewithcauses) - gets the error message with the messages of its cause chain appended to it
 * [`stackWithCauses`](#stackwithcauses) - gets a stack trace for the error + all its causes
 
+All the above are backwards compatible with causes created by the [`VError`](https://github.com/TritonDataCenter/node-verror) module which predated the Error Causes spec and is still used in parts of the ecosystem.
+
 ### Ponyfill for Error Causes
 
-* [`ErrorWithCause`](#errorwithcause) - an `Error` subclass that works like the [Error Causes](https://github.com/tc39/proposal-error-cause) spec and thus ["ponyfills"](https://ponyfill.com/) it (does _not_ patch anything globally)
+* [`ErrorWithCause`](#errorwithcause) - an exported `Error` subclass that works like the [Error Causes](https://github.com/tc39/proposal-error-cause) spec. By using this class you ["ponyfill"](https://ponyfill.com/) the spec locally rather than eg. polyfilling it globally.
 
 ## CJS + ESM + Types
 
@@ -61,7 +63,7 @@ try { /* Something that can break */ } catch (err) {
 
 Used to find a specific type of error in the chain of causes in an error.
 
-Similar to [`VError.findCauseByName`](https://github.com/joyent/node-verror#verrorfindcausebynameerr-name) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/joyent/node-verror) style, `.cause()` + takes a reference to the Error class that you are looking for rather than simply the name of it, as that enables the TypeScript types to properly type the returned error, typing it with the same type as the reference.
+Similar to [`VError.findCauseByName`](https://github.com/TritonDataCenter/node-verror#verrorfindcausebynameerr-name) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/TritonDataCenter/node-verror) style, `.cause()` + takes a reference to the Error class that you are looking for rather than simply the name of it, as that enables the TypeScript types to properly type the returned error, typing it with the same type as the reference.
 
 Can be useful if there's some extra data on it that can help determine whether it's an unexpected error or an error that can be handled.
 
@@ -82,7 +84,7 @@ try { /* Something that can break */ } catch (err) {
 }
 ```
 
-The output is similar to [`VError.cause()`](https://github.com/joyent/node-verror#verrorcauseerr) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/joyent/node-verror) style, `.cause()`.
+The output is similar to [`VError.cause()`](https://github.com/TritonDataCenter/node-verror#verrorcauseerr) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/TritonDataCenter/node-verror) style, `.cause()`.
 
 Always return an `Error`, a subclass of `Error` or `undefined`. If a cause in [Error Causes](https://github.com/tc39/proposal-error-cause) style cause is not an `Error` or a subclass of `Error`, it will be ignored and `undefined` will be returned.
 
@@ -107,7 +109,7 @@ try {
 }
 ```
 
-The output is similar to the standard `VError` behaviour of [appending `message` with the `cause.message`](https://github.com/joyent/node-verror#public-properties), separating the two with a `: `.
+The output is similar to the standard `VError` behaviour of [appending `message` with the `cause.message`](https://github.com/TritonDataCenter/node-verror#public-properties), separating the two with a `: `.
 
 Since [Error Causes](https://github.com/tc39/proposal-error-cause) doesn't do this, [`messageWithCauses`](#messagewithcauses) exist to mimic that behaviour.
 
@@ -133,7 +135,7 @@ try { /* Something that can break */ } catch (err) {
 }
 ```
 
-The output is similar to [`VError.fullStack()`](https://github.com/joyent/node-verror#verrorfullstackerr) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/joyent/node-verror) style, `.cause()`.
+The output is similar to [`VError.fullStack()`](https://github.com/TritonDataCenter/node-verror#verrorfullstackerr) but resolves causes in both [Error Causes](https://github.com/tc39/proposal-error-cause) style, `.cause`, and [VError](https://github.com/TritonDataCenter/node-verror) style, `.cause()`.
 
 _Note:_ [`stackWithCauses`](#stackwithcauses) has protection against circular causes
 
