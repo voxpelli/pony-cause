@@ -1,9 +1,10 @@
 {
-  "extends": "@voxpelli/tsconfig/node14.json",
+  "extends": "@voxpelli/tsconfig/legacy.json",
+
   "files": [
-    "index.js",
+    "index.js"
   ],
-  "include": [],
+
   "compilerOptions": {
     "lib": ["esnext"],
     "types": []
