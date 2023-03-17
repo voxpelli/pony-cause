@@ -102,7 +102,7 @@
     "linemod": "^0.3.0",
     "mocha": "^10.2.0",
     "npm-run-all2": "^6.0.4",
-    "type-coverage": "^2.24.1",
+    "type-coverage": "^2.25.0",
     "typescript": "~4.9.5",
     "verror": "^1.10.1"
   }
