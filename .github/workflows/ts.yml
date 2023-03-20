@@ -20,7 +20,7 @@ jobs:
     uses: voxpelli/ghatemplates/.github/workflows/type-check.yml@main
     with:
       ts-prebuild-script: 'build'
-      ts-versions: ${{ github.event.schedule && 'next' || '4.5,4.6,4.7,4.8,4.9,next' }}
+      ts-versions: ${{ github.event.schedule && 'next' || '4.5,4.6,4.7,4.8,4.9,5.0,next' }}
       # Can add the "es2020,es2022.error,es2021.promise" once 4.5 isn't included
       # ts-libs: 'es2020;esnext;es2020,es2022.error,es2021.promise'
       ts-libs: 'es2020;esnext'

@@ -1,10 +1,10 @@
 {
   "extends": "@voxpelli/tsconfig/node14.json",
   "files": [
-    "index.js",
+    "index.js"
   ],
   "include": [
-    "test/**/*.js",
+    "test/**/*.js"
   ],
   "exclude": [
     "test-published-types/**/*"
