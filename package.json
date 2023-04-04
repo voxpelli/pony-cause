@@ -101,7 +101,7 @@
     "installed-check": "^6.0.5",
     "linemod": "^0.3.0",
     "mocha": "^10.2.0",
-    "npm-run-all2": "^6.0.4",
+    "npm-run-all2": "^6.0.5",
     "type-coverage": "^2.25.0",
     "typescript": "~5.0.2",
     "verror": "^1.10.1"
