@@ -17,5 +17,5 @@ jobs:
   test:
     uses: voxpelli/ghatemplates/.github/workflows/test.yml@main
     with:
-      node-versions: '12'
+      node-versions: '12,14'
       npm-test-script: 'test-build-less'
