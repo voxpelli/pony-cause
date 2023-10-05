@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/knip@2/schema.json",
+  "entry": [
+    "compat.d.ts",
+    "index.js",
+    "index.mjs",
+    "index.d.ts"
+  ],
+  "ignore": ["test-published-types/*"],
+  "ignoreDependencies": ["@types/mocha"]
+}
