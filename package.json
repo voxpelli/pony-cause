@@ -54,7 +54,7 @@
     "check": "run-s check:*",
     "clean:declarations": "rm -rf $(find . -maxdepth 2 -type f -name '*.d.ts*' ! -name '*compat.d.ts')",
     "clean": "run-p clean:*",
-    "prepare": "husky install",
+    "prepare": "husky install > /dev/null",
     "prepublishOnly": "run-s build",
     "test:0": "run-s build-for-test",
     "test:1-mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js' 'test/**/*.spec.mjs'",
