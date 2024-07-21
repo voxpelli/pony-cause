@@ -14,8 +14,7 @@
 *.d.ts.map
 
 # Library specific ones
-*.mjs
-!test/**/*.mjs
+/lib/**/*.mjs
+/index.mjs
 !*compat.d.ts
 /test-published-types/node_modules
-!/test-published-types/index.mjs
