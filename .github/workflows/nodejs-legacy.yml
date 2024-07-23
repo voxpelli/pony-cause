@@ -19,3 +19,4 @@ jobs:
     with:
       node-versions: '12,14'
       npm-test-script: 'test-build-less'
+      npm-no-prepare: true
