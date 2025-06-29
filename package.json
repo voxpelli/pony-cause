@@ -76,8 +76,8 @@
     "@types/chai": "^4.3.16",
     "@types/chai-string": "^1.4.5",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^18.19.42",
-    "@types/verror": "^1.10.10",
+    "@types/node": "^18.19.113",
+    "@types/verror": "^1.10.11",
     "@voxpelli/eslint-config": "^22.1.0",
     "@voxpelli/tsconfig": "^13.0.0",
     "c8": "^10.1.2",
@@ -90,8 +90,8 @@
     "linemod": "^2.0.1",
     "mocha": "^10.7.0",
     "npm-run-all2": "^6.2.2",
-    "type-coverage": "^2.29.1",
-    "typescript": "~5.5.3",
+    "type-coverage": "^2.29.7",
+    "typescript": "~5.8.3",
     "verror": "^1.10.1"
   }
 }
