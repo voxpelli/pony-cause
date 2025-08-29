@@ -78,7 +78,7 @@
     "@types/mocha": "^10.0.7",
     "@types/node": "^18.19.42",
     "@types/verror": "^1.10.10",
-    "@voxpelli/eslint-config": "^22.1.0",
+    "@voxpelli/eslint-config": "^23.0.0",
     "@voxpelli/tsconfig": "^13.0.0",
     "c8": "^10.1.2",
     "chai": "^4.4.1",
